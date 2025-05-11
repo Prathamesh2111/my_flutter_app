@@ -1,7 +1,7 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/domain/constants/appcolors.dart';
+import 'package:my_flutter_app/repository/screens/login/loginscreen.dart';
 import 'package:my_flutter_app/repository/widgets/uihelper.dart';
 
 class SplashScreen extends StatefulWidget{
@@ -10,6 +10,17 @@ class SplashScreen extends StatefulWidget{
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  
+  @override
+  void initState() {
+    super.initState();
+    // Simulate a delay before navigating to the login screen
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => LoginScreen()),
+      );
+    });
+    }
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
